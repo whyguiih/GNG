@@ -1,4 +1,4 @@
-package com.example.manchild; // Mude para o pacote do seu projeto
+package com.example.manchild; // Mude para o pacote do seu projeto se for diferente
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +12,7 @@ public class GuessActivity extends AppCompatActivity {
 
     private TextView tvSomaResultado, tvMensagemFinal;
     private EditText etPalpite1, etPalpite2;
-    private Button btnVerificar;
+    private Button btnVerificar, btnVoltar; // btnVoltar adicionado
     private int numeroOriginal1, numeroOriginal2;
 
     @Override
@@ -25,6 +25,7 @@ public class GuessActivity extends AppCompatActivity {
         etPalpite1 = findViewById(R.id.etPalpite1);
         etPalpite2 = findViewById(R.id.etPalpite2);
         btnVerificar = findViewById(R.id.btnVerificar);
+        btnVoltar = findViewById(R.id.btnVoltar); // Referência do novo botão
 
         // Recebe os dados da MainActivity
         int soma = getIntent().getIntExtra("SOMA", 0);
@@ -56,9 +57,19 @@ public class GuessActivity extends AppCompatActivity {
                     tvMensagemFinal.setText("Parabéns! Você acertou.");
                     tvMensagemFinal.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
                 } else {
-                    tvMensagemFinal.setText("Errou kkkkkkkk otario");
+                    tvMensagemFinal.setText("Errou *Risada maléfica do Dipp*");
                     tvMensagemFinal.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
                 }
+            }
+        });
+
+        // Ação do botão voltar
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // O método finish() encerra esta Activity e o Android automaticamente
+                // retorna para a Activity anterior na pilha (MainActivity).
+                finish();
             }
         });
     }
