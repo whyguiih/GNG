@@ -1,4 +1,4 @@
-package com.example.manchild; // Mude para o pacote do seu projeto se for diferente
+package com.example.manchild;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,13 +6,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GuessActivity extends AppCompatActivity {
 
-    private TextView tvSomaResultado, tvMensagemFinal;
+    private TextView tvSomaMostrada, tvResultadoFinal;
     private EditText etPalpite1, etPalpite2;
-    private Button btnVerificar, btnVoltar; // btnVoltar adicionado
+    private Button btnVerificar, btnVoltar;
     private int numeroOriginal1, numeroOriginal2;
 
     @Override
@@ -20,19 +21,19 @@ public class GuessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess);
 
-        tvSomaResultado = findViewById(R.id.tvSomaResultado);
-        tvMensagemFinal = findViewById(R.id.tvMensagemFinal);
+        tvSomaMostrada = findViewById(R.id.tvSomaMostrada);
+        tvResultadoFinal = findViewById(R.id.tvResultadoFinal);
         etPalpite1 = findViewById(R.id.etPalpite1);
         etPalpite2 = findViewById(R.id.etPalpite2);
         btnVerificar = findViewById(R.id.btnVerificar);
-        btnVoltar = findViewById(R.id.btnVoltar); // Referência do novo botão
+        btnVoltar = findViewById(R.id.btnVoltar);
 
         // Recebe os dados da MainActivity
         int soma = getIntent().getIntExtra("SOMA", 0);
         numeroOriginal1 = getIntent().getIntExtra("NUM1", 0);
         numeroOriginal2 = getIntent().getIntExtra("NUM2", 0);
 
-        tvSomaResultado.setText(String.valueOf(soma));
+        tvSomaMostrada.setText("Soma mostrada: " + soma);
 
         btnVerificar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,28 +49,23 @@ public class GuessActivity extends AppCompatActivity {
                 int palpite1 = Integer.parseInt(strPalpite1);
                 int palpite2 = Integer.parseInt(strPalpite2);
 
-                // A lógica abaixo permite que o usuário acerte independente da ordem
-                // que ele digitou (ex: se era 5 e 3, ele ganha digitando 3 e 5 também)
                 boolean acertouOrdemCerta = (palpite1 == numeroOriginal1 && palpite2 == numeroOriginal2);
                 boolean acertouOrdemInvertida = (palpite1 == numeroOriginal2 && palpite2 == numeroOriginal1);
 
                 if (acertouOrdemCerta || acertouOrdemInvertida) {
-                    tvMensagemFinal.setText("Parabéns! Você acertou.");
-                    tvMensagemFinal.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    tvResultadoFinal.setText("Parabéns! Você acertou.");
+                    tvResultadoFinal.setTextColor(getResources().getColor(android.R.color.holo_green_light));
                 } else {
-                    tvMensagemFinal.setText("Errou *Risada maléfica do Dipp*");
-                    tvMensagemFinal.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+                    tvResultadoFinal.setText("Errou kkkkkkkk otario");
+                    tvResultadoFinal.setTextColor(getResources().getColor(android.R.color.holo_red_light));
                 }
             }
         });
 
-        // Ação do botão voltar
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // O método finish() encerra esta Activity e o Android automaticamente
-                // retorna para a Activity anterior na pilha (MainActivity).
-                finish();
+                finish(); // Fecha a Activity atual e volta para a anterior (MainActivity)
             }
         });
     }

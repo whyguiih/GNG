@@ -1,38 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:background="@drawable/background_gradient_purple"
+    android:padding="24dp"
+    tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Digite dois números secretos:"
-        android:textSize="20sp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginTop="40dp"
+        android:text="Adivinhe a Soma!"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvInstrucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Dois números foram sorteados. Você consegue adivinhar a soma deles?"
+        android:textAlignment="center"
+        android:textColor="#E0E0E0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
     <EditText
-        android:id="@+id/etNumero1"
-        android:layout_width="match_parent"
+        android:id="@+id/etSomaPalpite"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Primeiro número"
-        android:inputType="numberPassword"
-        android:layout_marginBottom="16dp"/>
-
-    <EditText
-        android:id="@+id/etNumero2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Segundo número"
-        android:inputType="numberPassword"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginTop="60dp"
+        android:background="@drawable/edittext_background_purple"
+        android:hint="Sua adivinhação"
+        android:inputType="number"
+        android:padding="16dp"
+        android:textColor="#311B92"
+        android:textColorHint="#9575CD"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInstrucao" />
 
     <Button
         android:id="@+id/btnJogar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Começar Jogo"/>
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background_purple"
+        android:padding="16dp"
+        android:text="Jogar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSomaPalpite" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvResultadoAnterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textColor="#E0E0E0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

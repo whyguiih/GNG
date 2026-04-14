@@ -1,62 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:background="@drawable/background_gradient_purple"
+    android:padding="24dp"
+    tools:context=".GuessActivity">
 
     <TextView
+        android:id="@+id/tvTituloGuess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A soma dos números é:"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/tvSomaResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="48sp"
+        android:layout_marginTop="40dp"
+        android:text="Quais são os números?"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="#FF0000"
-        android:layout_marginBottom="32dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSomaMostrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Soma mostrada: "
+        android:textColor="#E0E0E0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloGuess" />
 
     <EditText
         android:id="@+id/etPalpite1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Palpite do número 1"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/edittext_background_purple"
+        android:hint="Primeiro número"
         android:inputType="number"
-        android:layout_marginBottom="16dp"/>
+        android:padding="16dp"
+        android:textColor="#311B92"
+        android:textColorHint="#9575CD"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSomaMostrada" />
 
     <EditText
         android:id="@+id/etPalpite2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Palpite do número 2"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background_purple"
+        android:hint="Segundo número"
         android:inputType="number"
-        android:layout_marginBottom="24dp"/>
+        android:padding="16dp"
+        android:textColor="#311B92"
+        android:textColorHint="#9575CD"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPalpite1" />
 
     <Button
         android:id="@+id/btnVerificar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Verificar"/>
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background_purple"
+        android:padding="16dp"
+        android:text="Verificar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPalpite2" />
+
+    <TextView
+        android:id="@+id/tvResultadoFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerificar" />
 
     <Button
         android:id="@+id/btnVoltar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_background_purple_secondary"
+        android:padding="16dp"
         android:text="Voltar"
-        android:layout_marginTop="16dp"/>
+        android:textColor="#311B92"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tvMensagemFinal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
